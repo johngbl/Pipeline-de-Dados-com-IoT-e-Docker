@@ -1,0 +1,22 @@
+# Ambiente / IDE
+venv/
+.venv/
+.idea/
+.vscode/
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.pytest_cache/
+
+# Secrets
+.env
+
+# Dados / artefatos locais
+data/IOT-temp.csv
+*.db
+
+# Streamlit
+.streamlit/
