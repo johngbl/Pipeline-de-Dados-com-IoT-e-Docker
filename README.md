@@ -81,6 +81,19 @@ python .\src\ingest.py
 ## 5) Criar/Recriar as views SQL
 O arquivo de views é reaplicável (usa `DROP VIEW IF EXISTS`).
 
+### Opção A (recomendada no Windows): aplicar via Docker (sem instalar `psql`)
+
+```powershell
+Get-Content .\src\sql_views.sql | docker exec -i postgres-iot psql -U postgres -d iot_db
+```
+
+Validar que as views existem:
+
+```powershell
+docker exec -it postgres-iot psql -U postgres -d iot_db -c "\dv"
+```
+
+### Opção B: aplicar com `psql` instalado no sistema
 ```powershell
 psql -h $env:PGHOST -U $env:PGUSER -d $env:PGDATABASE -f .\src\sql_views.sql
 ```
